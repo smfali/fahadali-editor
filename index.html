@@ -39,7 +39,7 @@
             background: var(--white);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border-radius: 12px;
-            overflow: hidden;
+            overflow: visible;
         }
 
         /* Full-length Header */
@@ -51,6 +51,10 @@
             align-items: center;
             gap: 40px;
             position: relative;
+            border-top: 1px solid var(--vibrant-orange); /* NEW BORDER */
+            border-left: 1px solid var(--vibrant-orange); /* NEW BORDER */
+            border-right: 1px solid var(--vibrant-orange); /* NEW BORDER */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional enhancement */
         }
 
         .header::before {
@@ -403,6 +407,118 @@
             color: var(--text-light);
         }
 
+        /* Portfolio Section */
+        .portfolio-section {
+            margin: 30px 0;
+            padding: 0;
+        }
+
+        .portfolio-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #282d3c;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, #282d3c, #ff6700) 1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .portfolio-section h3 i {
+            margin-right: 8px;
+            color: #ff6700;
+        }
+
+        .portfolio-content {
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 3px solid #282d3c;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-content p {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+        }
+
+        .portfolio-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #282d3c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: 1px solid #282d3c;
+        }
+
+        .portfolio-btn:hover {
+            background: #ff6700;
+            border-color: #ff6700;
+            transform: translateY(-1px);
+            color: white;
+            text-decoration: none;
+        }
+
+        .portfolio-btn i {
+            font-size: 0.8rem;
+        }
+
+        /* Match existing section hover effects */
+        .portfolio-content {
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-content:hover {
+            transform: translateY(-2px);
+            border-left: 3px solid #ff6700;
+        }
+
+/* Responsive */
+@media (max-width: 640px) {
+    .portfolio-content {
+        padding: 15px;
+    }
+    
+    .portfolio-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+/* For dark theme compatibility */
+.sidebar .portfolio-section {
+    background: white;
+    border: 1px solid #e2e8f0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .portfolio-section {
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .portfolio-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .portfolio-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+}
+
         /* Responsive Design */
         @media (max-width: 968px) {
             .content {
@@ -525,16 +641,6 @@
                         <li><i class="fas fa-check"></i> Quillbot</li>
                         <li><i class="fas fa-check"></i> Hemingway Editor</li>
 
-                        
-
-
-
-
-
-
-
-
-
                     </ul>
                 </div>
                 
@@ -607,6 +713,15 @@
                         </ul>
                     </div>
                 </div>
+                <div class="portfolio-section">
+                <h3><i class="fas fa-folder-open"></i> Editing Portfolio</h3>
+                <div class="portfolio-content">
+                    <p>Professional writing samples and before/after editing examples available upon request. See how I can enhance your content while maintaining your unique voice and style.</p>
+                    <a href="mailto:newwebgenesys@gmail.com?subject=Portfolio%20Request&body=Hello%20Fahad,%20I'd%20like%20to%20see%20your%20editing%20portfolio." class="portfolio-btn">
+                        <i class="fas fa-envelope"></i> Request Portfolio
+                    </a>
+                </div>
+            </div>
             </div>
         </div>
     </div>
