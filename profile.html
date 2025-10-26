@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahad Ali - Proofreader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-blazer: #10561F;
+            --vibrant-orange: #ff6700;
+            --light-bg: #f8f9fa;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--navy-blazer) 0%, #1a1f2e 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-weight: 400;
+            min-height: 100vh;
+            padding: 20px;
+            font-size: 0.75rem;
+        }
+
+        .resume-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: var(--white);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Full-length Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy-blazer) 0%, #1e2435 100%);
+            color: var(--white);
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: var(--vibrant-orange);
+            border-radius: 50%;
+            opacity: 0.1;
+            transform: translate(100px, -100px);
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--vibrant-orange), #fff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--white);
+            flex-shrink: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-image i {
+            font-size: 60px;
+            color: var(--white);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            color: var(--white);
+        }
+
+        .title {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            height: 4px;
+            width: 80px;
+            background: var(--vibrant-orange);
+            margin: 0;
+            border-radius: 2px;
+        }
+
+        /* Main Content Layout */
+        .content {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: 600px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--light-bg);
+            padding: 35px 25px;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .main {
+            padding: 35px 45px;
+            background: var(--white);
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--navy-blazer);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, var(--navy-blazer), var(--vibrant-orange)) 1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 8px;
+            color: var(--vibrant-orange);
+        }
+
+        /* Contact Details */
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--navy-blazer);
+            margin-top: 2px;
+        }
+
+        .contact-text {
+            flex: 1;
+            color: var(--text-light);
+        }
+
+        /* Education */
+        .education-item {
+             line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            padding: 18px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            border-left: 3px solid var(--navy-blazer);
+        }
+        .education-item:hover{
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid var(--vibrant-orange);
+        }
+
+
+        .degree {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .institution {
+            color: var(--navy-blazer);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .date {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Skills */
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            padding: 6px 10px;
+            background: var(--white);
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .skills-list li:hover {
+            transform: translateX(3px);
+            border-left: 2px solid var(--vibrant-orange);
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* Tools */
+        .tools-list {
+            list-style: none;
+        }
+
+        .tools-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+            padding: 6px 0;
+        }
+
+        .tools-list i {
+            margin-right: 8px;
+            color: var(--navy-blazer);
+            width: 16px;
+        }
+
+        /* Certifications */
+        .certifications {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cert-badge {
+            background: var(--white);
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            color: var(--text-dark);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+            border-left: 3px solid var(--navy-blazer);
+            transition: transform 0.2s ease;
+        }
+
+        .cert-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid var(--vibrant-orange);
+        }
+
+        /* Summary */
+        .summary {
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            padding: 18px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            border-left: 3px solid var(--navy-blazer);
+        }
+        .summary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid var(--vibrant-orange);
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border-left: 3px solid var(--navy-blazer);
+        }
+
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid var(--vibrant-orange);
+        }
+
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .company {
+            font-size: 1rem;
+            color: var(--navy-blazer);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .date-range {
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-weight: 500;
+            background: var(--white);
+            padding: 3px 10px;
+            border-radius: 12px;
+            display: inline-block;
+            border: 1px solid #e2e8f0;
+        }
+
+        .responsibilities {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .responsibilities li:before {
+            content: "▸";
+            color: var(--vibrant-orange);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* References Section */
+        .references-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .references-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .references-list li {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: var(--white);
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+            border-left: 3px solid var(--navy-blazer);
+        }
+
+        .reference-name {
+            font-weight: 600;
+            color: var(--navy-blazer);
+            margin-bottom: 4px;
+        }
+
+        .reference-position {
+            color: var(--vibrant-orange);
+            margin-bottom: 4px;
+        }
+
+        .reference-contact {
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 30px;
+            }
+            
+            .profile-image {
+                margin: 0 auto;
+            }
+            
+            .divider {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .title {
+                font-size: 1.1rem;
+            }
+            
+            .main, .sidebar {
+                padding: 25px 20px;
+            }
+            
+            .experience-item, .education-item {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Full-length Header -->
+        <div class="header">
+            <div class="profile-image">
+                <!-- Profile picture placeholder -->
+                <!--<i class="fas fa-user"></i>-->
+                <!-- If you have an image, replace the above line with: -->
+                <!-- Base64 Embedded Profile Image -->
+                <img src="pic.png"  alt="Fahad Ali Profile">
+            </div>
+            <div class="header-text">
+                <h1 class="name">Fahad Ali</h1>
+                <p class="title">Proofreader & Editor</p>
+                <div class="divider"></div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-address-card"></i> Contact</h2>
+                    <ul class="contact-details">
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">newwebgenesys@gmail.com</div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">Austin, Texas, 78704</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <div class="education-item">
+                        <div class="degree">MSc in Physics</div>
+                        <div class="institution">University of Science & Technology, Texas</div>
+                        <div class="date">2018 - 2020</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-star"></i> Skills</h2>
+                    <ul class="skills-list">
+                        <li><div class="skill-name">SEO Content Writing</div></li>
+                        <li><div class="skill-name">Copywriting</div></li>
+                        <li><div class="skill-name">Editing</div></li>
+                        <li><div class="skill-name">Proofreading</div></li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-tools"></i> Tools</h2>
+                    <ul class="tools-list">
+                        <li><i class="fas fa-check"></i> MS Word 2016/2019</li>
+                        <li><i class="fas fa-check"></i> Google Docs</li>
+                        <li><i class="fas fa-check"></i> LibreOffice Writer</li>
+                        <li><i class="fas fa-check"></i> Adobe Acrobat Reader</li>
+                        <li><i class="fas fa-check"></i> Grammarly</li>
+                        <li><i class="fas fa-check"></i> Quillbot</li>
+                        <li><i class="fas fa-check"></i> Hemingway Editor</li>
+
+                        
+
+
+
+
+
+
+
+
+
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-award"></i> Certifications</h2>
+                    <div class="certifications">
+                        <div class="cert-badge">Certified Professional Proofreader</div>
+                        <div class="cert-badge">SEO Content Specialist</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="main">
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-user"></i> Summary</h2>
+                    <p class="summary">
+                        Highly experienced Proofreader with 3 years of dedicated experience in reviewing and editing documents for accuracy and clarity. Combines a strong scientific background with exceptional attention to detail and commitment to meeting deadlines. Proven ability to enhance document quality while maintaining the author's unique voice and intent.
+                    </p>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="job-title">Freelance Editor & Proofreader</div>
+                        <div class="company">Upwork & Various Online Portals</div>
+                        <div class="date-range">2021 - Present</div>
+                        <ul class="responsibilities">
+                            <li>Applied meticulous attention to detail to ensure all proofreading tasks were completed accurately and efficiently</li>
+                            <li>Reviewed documents for accuracy, consistency, grammar, punctuation, spelling, and clarity across various formats</li>
+                            <li>Detected and corrected errors in spelling, punctuation, syntax, and grammar while maintaining author's voice</li>
+                            <li>Collaborated with diverse clients to refine content while ensuring SEO optimization and reader engagement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="job-title">Content Editor</div>
+                        <div class="company">TexLex Editorial Services, Austin, TX</div>
+                        <div class="date-range">2020 - 2021</div>
+                        <ul class="responsibilities">
+                            <li>Verified facts, dates, and statistics within scientific and commercial documents for accuracy</li>
+                            <li>Checked document layout against agreed design specifications and formatting guidelines</li>
+                            <li>Edited copy for style, clarity, accuracy, and consistency across multiple client projects</li>
+                            <li>Implemented style guides to maintain brand voice and ensure document coherence</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- References Section -->
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-users"></i> References</h2>
+                    <div class="references-section">
+                        <ul class="references-list">
+                            <li>
+                                <div class="reference-name">Sarah Johnson</div>
+                                <div class="reference-position">Senior Editor, TechWrite Solutions</div>
+                                <div class="reference-contact">sarah.johnson@techwrite.com | (555) 123-4567</div>
+                            </li>
+                            <li>
+                                <div class="reference-name">Michael Chen</div>
+                                <div class="reference-position">Content Manager, DigitalWords Agency</div>
+                                <div class="reference-contact">m.chen@digitalwords.com | (555) 987-6543</div>
+                            </li>
+                            <li>
+                                <div class="reference-name">Dr. Emily Rodriguez</div>
+                                <div class="reference-position">Professor of Physics, University of Texas</div>
+                                <div class="reference-contact">e.rodriguez@utexas.edu | (555) 456-7890</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.header, .section');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(15px)';
+                setTimeout(() => {
+                    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 120);
+            });
+        });
+    </script>
+</body>
+</html>
